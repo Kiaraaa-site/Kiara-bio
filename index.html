@@ -33,14 +33,33 @@ body {
   z-index: -3;
 }
 
-/* 💫 летающие ники */
 .floating {
   position: absolute;
   color: #ff4fd8;
-  font-size: 40px;
   opacity: 0.08;
-  animation: float 12s linear infinite;
+  text-shadow: 0 0 10px #ff4fd8;
+  animation: float linear infinite;
   white-space: nowrap;
+  pointer-events: none;
+}
+
+/* движение вверх */
+@keyframes float {
+  0% {
+    transform: translateY(110vh) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.1);
+    opacity: 0;
+  }
+}
 }
 
 @keyframes float {
@@ -147,9 +166,16 @@ h1 {
 <div class="bg"></div>
 
 <!-- 💫 летающие ники -->
-<div class="floating" style="left:10%;">SIA</div>
-<div class="floating" style="left:40%; animation-duration:10s;">SIA</div>
-<div class="floating" style="left:70%; animation-duration:14s;">SIA</div>
+<!-- 💫 ЛЕТАЮЩИЕ НИКИ (МНОГО + КРАСИВО) -->
+<div class="floating" style="left:5%; animation-duration:12s; font-size:35px;">SIA</div>
+<div class="floating" style="left:15%; animation-duration:18s; font-size:50px;">SIA</div>
+<div class="floating" style="left:25%; animation-duration:14s; font-size:30px;">SIA</div>
+<div class="floating" style="left:35%; animation-duration:20s; font-size:45px;">SIA</div>
+<div class="floating" style="left:45%; animation-duration:16s; font-size:38px;">SIA</div>
+<div class="floating" style="left:55%; animation-duration:22s; font-size:55px;">SIA</div>
+<div class="floating" style="left:65%; animation-duration:13s; font-size:32px;">SIA</div>
+<div class="floating" style="left:75%; animation-duration:19s; font-size:42px;">SIA</div>
+<div class="floating" style="left:85%; animation-duration:17s; font-size:36px;">SIA</div>
 
 <!-- 🎬 INTRO -->
 <div class="intro">SIA</div>
