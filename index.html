@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SIA | Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIA Profile</title>
 
 <style>
 * {
@@ -15,56 +15,73 @@
 
 body {
   height: 100vh;
+  overflow: hidden;
+  background: black;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  color: white;
-  background: #0a0a12;
-  overflow: hidden;
 }
 
-/* 🌸 мягкий неоновый фон */
+/* 🌸 фон */
 .bg {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 20% 30%, #ff4fd8 0%, transparent 45%),
-              radial-gradient(circle at 80% 70%, #7a5cff 0%, transparent 50%);
-  filter: blur(50px);
-  animation: move 8s ease-in-out infinite;
-  z-index: -2;
+  background: radial-gradient(circle at 30% 30%, #ff4fd8 0%, transparent 40%),
+              radial-gradient(circle at 70% 70%, #8a4dff 0%, transparent 45%);
+  filter: blur(60px);
+  z-index: -3;
 }
 
-@keyframes move {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+/* 💫 летающие ники */
+.floating {
+  position: absolute;
+  color: #ff4fd8;
+  font-size: 40px;
+  opacity: 0.08;
+  animation: float 12s linear infinite;
+  white-space: nowrap;
 }
 
-/* 💎 контейнер */
+@keyframes float {
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-120vh); }
+}
+
+/* 🎬 INTRO НИК */
+.intro {
+  position: absolute;
+  font-size: 80px;
+  color: #ff4fd8;
+  text-shadow: 0 0 20px #ff4fd8;
+  letter-spacing: 10px;
+  animation: introAnim 2.5s ease forwards;
+}
+
+@keyframes introAnim {
+  0% { opacity: 0; transform: scale(0.5); }
+  40% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* 📦 основной профиль */
 .container {
-  animation: fadeIn 1.8s ease forwards;
   opacity: 0;
+  animation: show 1s ease forwards;
+  animation-delay: 2.3s;
+  text-align: center;
+  color: white;
 }
 
-@keyframes fadeIn {
+@keyframes show {
   to { opacity: 1; }
-}
-
-/* 👋 приветствие */
-.welcome {
-  font-size: 22px;
-  opacity: 0.9;
-  margin-bottom: 10px;
 }
 
 /* 💎 ник */
 h1 {
   font-size: 60px;
-  letter-spacing: 6px;
-  text-shadow:
-    0 0 10px #ff4fd8,
-    0 0 25px #7a5cff;
+  color: #ff4fd8;
+  text-shadow: 0 0 15px #ff4fd8;
 }
 
 /* 📸 аватар */
@@ -75,60 +92,52 @@ h1 {
   margin-top: 15px;
   border: 2px solid #ff4fd8;
   box-shadow: 0 0 20px #ff4fd8;
-  object-fit: cover;
 }
 
-/* ✨ текст */
-.subtitle {
-  margin-top: 10px;
-  font-size: 15px;
-  opacity: 0.85;
-}
-
-/* 🟪 НЕОНОВЫЙ КВАДРАТ ПРОМО */
+/* 🟪 промо */
 .promo-box {
   margin: 15px auto;
   width: 180px;
-  height: 70px;
-  border: 2px solid #ffcc00;
+  height: 80px;
+  border: 2px solid #ff4fd8;
   border-radius: 12px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  font-size: 18px;
-  letter-spacing: 2px;
-  box-shadow: 0 0 15px #ffcc00;
+  align-items: center;
+  color: white;
+  box-shadow: 0 0 20px #ff4fd8;
 }
 
 .promo-box span {
-  color: #ffcc00;
+  color: #ffccff;
+  font-size: 28px;
   font-weight: bold;
-  text-shadow: 0 0 10px #ffcc00;
+  text-shadow: 0 0 10px #ff4fd8;
 }
 
-/* 🔗 кнопка сервера */
-.server-btn {
+/* 🔘 кнопка */
+.btn {
   margin-top: 20px;
-  display: inline-block;
   padding: 12px 25px;
   border-radius: 12px;
-  border: 1px solid #00ffcc;
-  color: #00ffcc;
+  border: 1px solid #ff4fd8;
+  color: #ff4fd8;
   text-decoration: none;
-  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 0 15px #ff4fd8;
   transition: 0.3s;
-  box-shadow: 0 0 12px #00ffcc;
 }
 
-.server-btn:hover {
+.btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px #00ffcc;
+  box-shadow: 0 0 30px #ff4fd8;
 }
 
 /* 📱 адаптация */
 @media (max-width: 600px) {
-  h1 { font-size: 42px; }
-  .promo-box { width: 150px; }
+  h1 { font-size: 40px; }
+  .intro { font-size: 50px; }
 }
 </style>
 </head>
@@ -137,29 +146,33 @@ h1 {
 
 <div class="bg"></div>
 
-<div class="container">
+<!-- 💫 летающие ники -->
+<div class="floating" style="left:10%;">SIA</div>
+<div class="floating" style="left:40%; animation-duration:10s;">SIA</div>
+<div class="floating" style="left:70%; animation-duration:14s;">SIA</div>
 
-  <!-- 👋 текст -->
-  <div class="welcome">
-    👋 Добро пожаловать на мой профиль
-  </div>
+<!-- 🎬 INTRO -->
+<div class="intro">SIA</div>
+
+<!-- 📦 профиль -->
+<div class="container">
 
   <h1>SIA</h1>
 
   <img class="avatar" src="avatar.png" alt="avatar">
 
-  <div class="subtitle">
-    🎬 Делаю крутые GTA5 видео и эдиты
-  </div>
+  <p style="margin-top:10px; opacity:0.8;">
+    GTA 5 Editor • Cyber Videos • Montage Creator
+  </p>
 
-  <!-- 🟪 ПРОМО -->
   <div class="promo-box">
-    PROMO <span>SIA</span>
+    PROMO
+    <span>TUS</span>
+    <small style="opacity:0.7; margin-top:5px;">Server Ukraine GTA5</small>
   </div>
 
-  <!-- 🔗 КНОПКА СЕРВЕРА -->
-  <a class="server-btn" href="https://ukraine-gta5.com.ua/" target="_blank">
-    🚀 Перейти на сервер GTA5
+  <a class="btn" href="https://ukraine-gta5.com.ua/" target="_blank">
+    Играть на сервере
   </a>
 
 </div>
